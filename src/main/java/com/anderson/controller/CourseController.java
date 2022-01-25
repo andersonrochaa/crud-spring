@@ -6,6 +6,7 @@ import com.anderson.model.Course;
 import com.anderson.repository.CourseRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,10 @@ public class CourseController {
     @GetMapping
     public List<Course> list(){
         return courseRepository.findAll();
+    }
+
+    @PostMapping
+    public void add(Course c){
+        courseRepository.save(c);
     }
 }
